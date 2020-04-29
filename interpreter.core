@@ -1,0 +1,7 @@
+import "strings.core"
+
+var code = ["print Hello", "print Test"]
+
+loop line as range: 0 code
+	
+	
