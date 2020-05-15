@@ -1,0 +1,64 @@
+# This is Corescript "Hello, World" written
+# in classic Corescript. (Corescript 0)
+
+var string = print Hello_world!
+
+# Runtime variables
+var i = 0
+var partsParsed = 0
+var char = (blank)
+var commandType = (blank)
+var reading = (blank)
+var stringLen = (len string)
+
+# loop through chars
+:top
+if i = (stringLen):execute
+
+# Information for reading
+set char = (string[i])
+set reading = (reading)(char)
+
+# Check if we are at a space or at end
+if char = (space):printReading
+if i = (add stringLen -1):printReading
+:printReadingBack
+
+# Add 1 and return loop
+set i = (add i 1)
+goto top
+
+
+
+
+# Print reading, set it to blank
+# Also set type if on part 0
+:printReading
+
+# Set command type if on zero
+if partsParsed = 0:setType
+:setTypeBack
+
+# if not on last char, don't reset
+if i = (add stringLen -1):keepReading
+set reading = (blank)
+:keepReading
+
+set partsParsed = (add partsParsed 1)
+goto printReadingBack
+
+# To set the type
+:setType
+set commandType = (reading)
+goto setTypeBack
+
+
+
+
+:execute
+if commandType = print(space):executePrint
+print Command (commandType) not found.
+stop
+
+:executePrint
+print (reading)
