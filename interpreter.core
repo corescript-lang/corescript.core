@@ -6,7 +6,7 @@ var string = print Hello_world!
 var length = (len string)
 
 # Runtime variables
-var i = 0
+var c = 0
 var partsParsed = 0
 var char = (blank)
 var commandType = (blank)
@@ -14,20 +14,20 @@ var reading = (blank)
 
 # loop through chars
 :loopChar
-if i = (length):execute
+if c = (length):execute
 
 # Add char to reading
-set char = (string[i])
+set char = (string[c])
 set reading = (reading)(char)
 
 # Checking for space
 if char = (space):printReading
 
 # Checking for string end
-if i = (add length -1):printReading
+if c = (add length -1):printReading
 
 # Return loop
-set i = (add i 1)
+set c = (add c 1)
 goto loopChar
 
 
@@ -39,7 +39,7 @@ goto loopChar
 if partsParsed = 0:setType
 
 # if not on last char, don't reset
-if i = (add length -1):keepReading
+if c = (add length -1):keepReading
 set reading = (blank)
 
 :keepReading
