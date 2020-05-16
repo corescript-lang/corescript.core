@@ -1,6 +1,0 @@
-var line = "print Hello, World"
-var array = []
-
-for char in line
-	if char = " "
-		
