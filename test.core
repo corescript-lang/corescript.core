@@ -1,0 +1,24 @@
+var string = print Hello World
+var length = (len string)
+
+var c = 0
+var c = (blank)
+var reading = (blank)
+
+:loopChar
+if c = length:kill
+set char = (string[c])
+
+if char = (space):printSpace
+
+
+set reading = (reading)(char)
+set i = (add i 1)
+goto loopChar
+
+:printSpace
+print (reading)
+set reading = (blank)
+return printSpace
+
+:kill
