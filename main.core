@@ -1,0 +1,47 @@
+# Self hosting
+
+var alpha = qwertyuiopasdfghjklzxcvbnm
+var code = print hello world
+
+var std_print = print
+
+# Current character
+var c = 0
+
+# General purpose incrementation
+var a = 0
+var b = 0
+
+:top
+	if c = [len code]:kill
+	set a = [char code c]
+	
+	if a = [space]:newtok
+	goto checkAlpha
+	
+	print Current char: '[char code c]'
+	set c = [add c 1]
+	goto top
+
+:newtok
+	print New token started
+return newtok
+
+:checkAlpha
+	set b = 0
+	:checkAlpha_top
+		if b = [len alpha]:checkAlpha_end
+
+		set a = [char alpha b]
+		if a = [char code c]:checkAlpha_found
+
+		set b = [add b 1]
+		goto checkAlpha_top
+	:checkAlpha_end
+return checkAlpha
+
+:checkAlpha_found
+	print Found an ascii char: [char code c]
+return checkAlpha
+
+:kill
